@@ -31,5 +31,6 @@ node demo_db_connection.js
 ```
 
 The output should look like below if correctly setup.
+
 ![image](https://user-images.githubusercontent.com/30349597/119447857-812f2e00-bcfe-11eb-9953-af79d1efa8c0.png)
 
