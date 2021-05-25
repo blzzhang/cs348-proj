@@ -5,6 +5,7 @@
 Follow the instructions here to install mysql locally
 https://dev.mysql.com/doc/refman/8.0/en/installing.html
 
+Then run the below code to populate your test db.
 ```
 $ mysql -u root -p
 mysql> CREATE DATABASE testDB;
