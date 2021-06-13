@@ -10,11 +10,8 @@ Then run the below code to populate your test db.
 $ mysql -u root -p
 mysql> CREATE DATABASE testDB;
 mysql> USE testDB;
-mysql> CREATE TABLE student(uid DECIMAL(3, 0) NOT NULL PRIMARY KEY, name
-VARCHAR(30), score DECIMAL(3, 2));
-mysql> INSERT INTO student VALUES(1, ’xi’, 0.1);
-mysql> INSERT INTO student VALUES(2, ’yi’, 0.4);
-mysql> SELECT * FROM student;
+mysql> source <path_to_files>/droptables.sql
+mysql> source <path_to_files>/createtables.sql
 ```
 
 # Environment Variable
