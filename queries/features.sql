@@ -16,7 +16,7 @@ from course c
 inner join
 feedback f
 on c.id = f.CourseID
-where c.id = 1
+where c.id = 1;
 
 --5
 select i.name
@@ -24,4 +24,4 @@ from course c
 inner join
 instructor i
 on c.InstructorID = i.ID
-where c.id = 1
+where c.id = 1;
