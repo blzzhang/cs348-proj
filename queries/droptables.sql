@@ -1,11 +1,11 @@
-DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS enrolled;
+
+DROP TABLE IF EXISTS prerequisite;
+
+DROP TABLE IF EXISTS feedback;
 
 DROP TABLE IF EXISTS course;
 
 DROP TABLE IF EXISTS instructor;
 
-DROP TABLE IF EXISTS enrolled;
-
-DROP TABLE IF EXISTS feedback;
-
-DROP TABLE IF EXISTS prerequisite;
+DROP TABLE IF EXISTS student;

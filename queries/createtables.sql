@@ -4,7 +4,7 @@ CREATE TABLE instructor(
 );
 
 CREATE TABLE course(
-    ID INT(6) NOT NULL PRIMARY KEY,
+    ID INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(30),
     DetailedName VARCHAR(30),
     Description VARCHAR(30),
@@ -16,7 +16,7 @@ CREATE TABLE course(
 
 
 CREATE TABLE student(
-    ID INT(6) NOT NULL PRIMARY KEY,
+    ID INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(30),
     Major VARCHAR(30),
     StudyYear VARCHAR(30)
@@ -40,7 +40,7 @@ CREATE TABLE prerequisite(
 
 
 CREATE TABLE feedback(
-    ID INT(6) NOT NULL PRIMARY KEY,
+    ID INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Rating INT(6),
     Liked INT(6),
     Useful INT(6),
