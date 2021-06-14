@@ -12,6 +12,15 @@ mysql> CREATE DATABASE testDB;
 mysql> USE testDB;
 mysql> source <path_to_files>/droptables.sql
 mysql> source <path_to_files>/createtables.sql
+mysql> source <path_to_files>/populatedb.sql
+```
+
+# Test-sample
+
+To see a sample of database features our app has, run the below. 
+The output should be identical to test-sample.out
+```
+mysql> source <path_to_files>/test-sample.sql
 ```
 
 # Environment Variable
