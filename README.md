@@ -40,3 +40,26 @@ The output should look like below if correctly setup.
 
 ![image](https://user-images.githubusercontent.com/30349597/119447857-812f2e00-bcfe-11eb-9953-af79d1efa8c0.png)
 
+# Spring Boot Backend
+This backend framework temporarily provides a way to populate the database with small sample data.
+The framework reaches out to the University of Waterloo's OpenAPI and obtains courses and populates
+them onto the local instance of mysql database.
+
+# Prereq
+Refer back to the previous section and make sure to have mysql running with the testDB created.
+
+After creating the tables, you will need to make a new user by invoking the following commands:
+```
+mysql> create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the user
+mysql> grant all on testDB.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
+```
+
+# Running & Usage
+Currently, there are two endpoints you can reach out to, one that populates the DB with real, sample
+data and an endpoint that will return the course based on the id provided.
+
+```shell script
+curl 'localhost:8080/courses/populate' ;populates the sample db
+curl 'localhost:8080/courses/{id}' ;gets the course by id
+```
+
