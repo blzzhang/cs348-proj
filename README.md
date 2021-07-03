@@ -30,16 +30,6 @@ DB_USER=my_user
 DB_PASS=my_pass
 ```
 
-# Running
-Run 
-```
-node demo_db_connection.js
-```
-
-The output should look like below if correctly setup.
-
-![image](https://user-images.githubusercontent.com/30349597/119447857-812f2e00-bcfe-11eb-9953-af79d1efa8c0.png)
-
 # Spring Boot Backend
 This backend framework temporarily provides a way to populate the database with small sample data.
 The framework reaches out to the University of Waterloo's OpenAPI and obtains courses and populates
