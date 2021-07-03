@@ -1,7 +1,7 @@
 package com.cs348pj.restapi.util;
 
 import com.cs348pj.restapi.constants.RestApiConstants;
-import com.cs348pj.restapi.dto.CourseDto;
+import com.cs348pj.restapi.dto.Course;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.URI;
@@ -19,7 +19,7 @@ public class DataLoader {
     }
 
     // returns null on error
-    public CourseDto getCourseById(String termCode, String courseId) {
+    public Course getCourseById(String termCode, String courseId) {
         try {
             String uriStr = String.format(RestApiConstants.UW_OPEN_API_URI + "/Courses/%s/%s",
                     termCode, courseId);
@@ -34,7 +34,7 @@ public class DataLoader {
 
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            return mapper.readValue(response.body(), CourseDto.class);
+            return mapper.readValue(response.body(), Course.class);
         } catch(Exception e) {
             System.err.println("Error creating the DataLoader");
         }

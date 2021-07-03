@@ -1,16 +1,11 @@
 package com.cs348pj.restapi;
 
-import com.cs348pj.restapi.dto.CourseDto;
-import com.cs348pj.restapi.repository.CourseRepository;
-import com.cs348pj.restapi.util.DataLoader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
+@EntityScan({"com.cs348pj.restapi.dto"})
 public class RestapiApplication {
 
 	public static void main(String[] args) {
