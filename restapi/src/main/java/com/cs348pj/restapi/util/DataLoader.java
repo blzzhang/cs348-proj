@@ -28,7 +28,6 @@ public class DataLoader {
 
                     request = HttpRequest.newBuilder(uri)
                     .headers("Accept", "application/json",
-                             "connection", "keep-alive",
                              "x-api-key", RestApiConstants.UW_API_KEY)
                     .build();
 

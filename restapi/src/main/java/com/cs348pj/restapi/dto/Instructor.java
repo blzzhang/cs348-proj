@@ -15,9 +15,9 @@ import java.util.Set;
 @Entity
 public class Instructor {
     @Id
-    private String id;
+    private Integer id;
     private String name;
 
-    @ManyToMany
-    private Set<Course> courses;
+//    @ManyToMany
+//    private Set<Course> courses;
 }

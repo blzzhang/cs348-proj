@@ -19,7 +19,8 @@ public class RestapiServiceImpl implements RestapiService {
     }
 
     @Override
-    public void populateSample(String courseId, String title, String description) {
+    public void populateSample(Integer courseId, String title, String description) {
+        System.out.println("populating the sample");
         courseRepository.populateSample(courseId, title, description);
     }
 

@@ -8,15 +8,18 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+
 // TODO: change CourseDto to Entity model
 @Repository
 public interface CourseRepository extends CrudRepository<Course, Integer> {
 
     @Modifying
-    @Query(value = "insert into course (courseId, name, description) values (:courseId, :name, :desc)",
+    @Transactional
+    @Query(value = "insert into course (course_id, title, description) values (:courseId, :name, :desc)",
     nativeQuery = true)
     void populateSample(
-            @Param("courseId") String courseId,
+            @Param("courseId") Integer courseId,
             @Param("name") String title,
             @Param("desc") String desc);
 }
