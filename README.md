@@ -23,6 +23,14 @@ The output should be identical to test-sample.out
 mysql> source <path_to_files>/test-sample.sql
 ```
 
+# Test-production
+
+To see a sample of database features our app has with production dataset, run the below. 
+The output should be identical to test-production.out
+```
+mysql> source <path_to_files>/test-production.sql
+```
+
 # Environment Variable
 Create a file called .env with your mysql user and pass set as required.
 ```
@@ -44,12 +52,15 @@ mysql> create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the 
 mysql> grant all on testDB.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
 ```
 
-# Running & Usage
-Currently, there are two endpoints you can reach out to, one that populates the DB with real, sample
-data and an endpoint that will return the course based on the id provided.
+# Supported Features
+Currently, there are several features you can use by making a request to our endpoints. 
 
 ```shell script
-curl 'localhost:8080/courses/populate' ;populates the sample db
-curl 'localhost:8080/courses/{id}' ;gets the course by id
+curl 'localhost:8080/courses/populate' ;populates the sample db (RestapiService.java, RestapiServiceImpl.java)
+curl 'localhost:8080/courses/{id}' ;gets the course by id (RestapiService.java, RestapiServiceImpl.java)
+curl 'localhost:8080/students/register' ;post request to register a student account (StudentService.java, StudentServiceImpl.java)  
+curl 'localhost:8080/students/listAll' ;gets all registers users (StudentService.java, StudentServiceImpl.java)  
+curl 'localhost:8080/reviews/{id}/add' ;post request to create a new review (ReviewService.java, ReviewServiceImpl.java)  
+curl 'localhost:8080/reviews/listAllForCourse?courseName={course}' ;gets all reviews for a particular course (ReviewService.java, ReviewServiceImpl.java)  
 ```
 
