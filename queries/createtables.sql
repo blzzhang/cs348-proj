@@ -1,25 +1,30 @@
 CREATE TABLE instructor(
     ID INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(30)
+    Name VARCHAR(255)
 );
 
 CREATE TABLE course(
-    ID INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(30),
-    DetailedName VARCHAR(200),
-    Description VARCHAR(1000),
-    Location VARCHAR(30),
-    MajorStudentOnly TINYINT(1),
-    InstructorID INT(6),
-    FOREIGN KEY (InstructorID) REFERENCES instructor(ID)
+    course_id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    subject VARCHAR(20),
+    title VARCHAR(255),
+    detailed_name VARCHAR(255),
+    description VARCHAR(255),
+    location VARCHAR(255),
+    major_only TINYINT(1),
+    instructor_id INT(6),
+    FOREIGN KEY (instructor_id) REFERENCES instructor(ID)
 );
 
 
 CREATE TABLE student(
     ID INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(30),
-    Major VARCHAR(30),
-    StudyYear VARCHAR(30)
+    create_time TIMESTAMP,
+    email VARCHAR(255),
+    password VARCHAR(255),
+    name VARCHAR(255),
+    major VARCHAR(255),
+    uw_student_id VARCHAR(30),
+    year VARCHAR(30)
 );
 
 CREATE TABLE enrolled(
@@ -30,17 +35,18 @@ CREATE TABLE enrolled(
     FOREIGN KEY(StudentID) REFERENCES student(ID)
 );
 
-CREATE TABLE prerequisite(
-    CourseID INT(6),
-    PrerequisiteID INT(6),
+CREATE TABLE course_prereqs (
+    course_id INT(6),
+    prerequisite_course_id INT(6),
     PRIMARY KEY(CourseID, PrerequisiteID),
     FOREIGN KEY(CourseID) REFERENCES course(ID),
     FOREIGN KEY(PrerequisiteID) REFERENCES course(ID)
 );
 
 
-CREATE TABLE feedback(
-    ID INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE review(
+    id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    course_name varchar(255),
     Rating INT(6),
     Liked INT(6),
     Useful INT(6),
@@ -51,7 +57,7 @@ CREATE TABLE feedback(
     InstructorID INT(6),
     CourseID INT(6),
     Description VARCHAR(200),
-    SubmittedTime TIMESTAMP,
+    create_time TIMESTAMP,
     FOREIGN KEY(InstructorID) REFERENCES instructor(ID),
     FOREIGN KEY(StudentID) REFERENCES student(ID),
     FOREIGN KEY(CourseID) REFERENCES course(ID)
