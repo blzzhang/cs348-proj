@@ -1,18 +1,18 @@
 package com.cs348pj.restapi.util;
 
 import com.cs348pj.restapi.constants.RestApiConstants;
-import com.cs348pj.restapi.dto.Course;
+import com.cs348pj.restapi.model.Course;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.JSONArray;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 public class DataLoader {
-    private HttpClient client;
-    private HttpRequest request;
-    private HttpResponse<String> response;
+    private final HttpClient client;
 
     public DataLoader() {
         client = HttpClient.newHttpClient();
@@ -21,17 +21,8 @@ public class DataLoader {
     // returns null on error
     public Course getCourseById(String termCode, String courseId) {
         try {
-            String uriStr = String.format(RestApiConstants.UW_OPEN_API_URI + "/Courses/%s/%s",
-                    termCode, courseId);
-            URI uri = new URI(uriStr);
             ObjectMapper mapper = new ObjectMapper();
-
-                    request = HttpRequest.newBuilder(uri)
-                    .headers("Accept", "application/json",
-                             "x-api-key", RestApiConstants.UW_API_KEY)
-                    .build();
-
-            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = sendRequest(termCode, courseId);
 
             return mapper.readValue(response.body(), Course.class);
         } catch(Exception e) {
@@ -39,6 +30,53 @@ public class DataLoader {
         }
 
         return null;
+    }
+
+    public List<Course> getCoursesBySubject(String termCode, String subjectCode) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            HttpResponse<String> response = sendRequest(termCode, subjectCode);
+
+//            for (Course c : courses) {
+//                String uriStr = String.format(RestApiConstants.UW_OPEN_API_URI + "/ClassSchedules/%s/%s/%s",
+//                        c.getTermCode(), c.getSubjectCode(), c.getCatalogNumber());
+//                URI uri = new URI(uriStr);
+//
+//                HttpRequest req = HttpRequest.newBuilder(uri)
+//                        .headers("Accept", "application/json",
+//                                "x-api-key", RestApiConstants.UW_API_KEY)
+//                        .build();
+//
+//                HttpResponse<String> res = client.send(req, HttpResponse.BodyHandlers.ofString());
+//
+//                if (res.statusCode() == 200) {
+//                    Integer classNum = Integer.parseInt(new JSONArray(res.body())
+//                            .getJSONObject(0)
+//                            .getString("classNumber"));
+//                    c.setClassNumber(classNum);
+//                }
+//
+//            }
+
+            return mapper.readValue(response.body(),
+                    mapper.getTypeFactory().constructCollectionType(List.class, Course.class));
+        } catch(Exception e) {
+            System.err.println("Error creating the DataLoader");
+        }
+        return null;
+    }
+
+    private HttpResponse<String> sendRequest(String firstParam, String secondParam) throws Exception {
+        String uriStr = String.format(RestApiConstants.UW_OPEN_API_URI + "/Courses/%s/%s",
+                firstParam, secondParam);
+        URI uri = new URI(uriStr);
+
+        HttpRequest request = HttpRequest.newBuilder(uri)
+                .headers("Accept", "application/json",
+                        "x-api-key", RestApiConstants.UW_API_KEY)
+                .build();
+
+        return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
 }
