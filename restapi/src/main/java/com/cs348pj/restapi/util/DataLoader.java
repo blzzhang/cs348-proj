@@ -37,27 +37,6 @@ public class DataLoader {
             ObjectMapper mapper = new ObjectMapper();
             HttpResponse<String> response = sendRequest(termCode, subjectCode);
 
-//            for (Course c : courses) {
-//                String uriStr = String.format(RestApiConstants.UW_OPEN_API_URI + "/ClassSchedules/%s/%s/%s",
-//                        c.getTermCode(), c.getSubjectCode(), c.getCatalogNumber());
-//                URI uri = new URI(uriStr);
-//
-//                HttpRequest req = HttpRequest.newBuilder(uri)
-//                        .headers("Accept", "application/json",
-//                                "x-api-key", RestApiConstants.UW_API_KEY)
-//                        .build();
-//
-//                HttpResponse<String> res = client.send(req, HttpResponse.BodyHandlers.ofString());
-//
-//                if (res.statusCode() == 200) {
-//                    Integer classNum = Integer.parseInt(new JSONArray(res.body())
-//                            .getJSONObject(0)
-//                            .getString("classNumber"));
-//                    c.setClassNumber(classNum);
-//                }
-//
-//            }
-
             return mapper.readValue(response.body(),
                     mapper.getTypeFactory().constructCollectionType(List.class, Course.class));
         } catch(Exception e) {

@@ -52,11 +52,39 @@ mysql> create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the 
 mysql> grant all on testDB.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
 ```
 
+# Data Setup Guide
+Following these steps, you should be able to populate your database with real courses in
+University of Waterloo for Spring 2021 term. Make sure to follow these steps sequentially.
+
+## Background
+- Have [php](https://www.php.net/manual/en/install.php) installed
+- mySql is running with testDB and correct user created
+- dropped tables prior to running RestapiApplication
+
+## Populating Course data
+Course table's data is populated by reaching out to the following endpoint:
+```shell script
+curl -v -X POST localhost:8080/courses/populate
+```
+Upon successful data setup, the console will display the following: `populated`.
+
+## Populating Instructor data
+However, the column instructor is not yet populated using this endpoint since UWaterloo's OpenData API does not provide
+any instructor data.
+- First, verify that courses.txt and instructors.txt under `src/main/resources` are present with data.
+- If not, you need to run the shell script `cs348-proj/scrapers/populate.sh` before continuing.
+
+After the above steps, there is another endpoint which needs to be hit:
+```shell script
+curl -v -X POST localhost:8080/courses/instructors
+```
+This will successfully populate instructor data and should print this on console: `instructors added`.
 # Supported Features
 Currently, there are several features you can use by making a request to our endpoints. 
 
 ```shell script
 curl 'localhost:8080/courses/populate' ;populates the sample db (RestapiService.java, RestapiServiceImpl.java)
+curl -v -X POST localhost:8080/courses/instructors ;updates the db entries with the list of instructors (RestapiServiceImpl.java)
 curl 'localhost:8080/courses/{id}' ;gets the course by id (RestapiService.java, RestapiServiceImpl.java)
 curl 'localhost:8080/students/register' ;post request to register a student account (StudentService.java, StudentServiceImpl.java)  
 curl 'localhost:8080/students/listAll' ;gets all registers users (StudentService.java, StudentServiceImpl.java)  
