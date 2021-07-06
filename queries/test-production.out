@@ -1,0 +1,32 @@
+mysql> source C:\Users\brend\Desktop\cs348-proj\queries\test-production.sql
+
+-- Note: the query for feature 1 is omitted due to size
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 4 rows affected (0.01 sec)
+
++-------+---------------+
+| Name  | OverallRating |
++-------+---------------+
+| CS348 |        3.5000 |
++-------+---------------+
+1 row in set (0.00 sec)
+
++-----------------+
+| name            |
++-----------------+
+| Xi He           |
+| David Toman     |
+| Ahmed Hajyasien |
++-----------------+
+3 rows in set (0.00 sec)
+
++-------+
+| title |
++-------+
+| CS240 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> Terminal close -- exit!

@@ -31,16 +31,16 @@ CREATE TABLE enrolled(
     CourseID INT(6),
     StudentID INT(6),
     PRIMARY KEY(CourseID, StudentID),
-    FOREIGN KEY(CourseID) REFERENCES course(ID),
+    FOREIGN KEY(CourseID) REFERENCES course(course_id),
     FOREIGN KEY(StudentID) REFERENCES student(ID)
 );
 
 CREATE TABLE course_prereqs (
     course_id INT(6),
     prerequisite_course_id INT(6),
-    PRIMARY KEY(CourseID, PrerequisiteID),
-    FOREIGN KEY(CourseID) REFERENCES course(ID),
-    FOREIGN KEY(PrerequisiteID) REFERENCES course(ID)
+    PRIMARY KEY(course_id, prerequisite_course_id),
+    FOREIGN KEY(course_id) REFERENCES course(course_id),
+    FOREIGN KEY(prerequisite_course_id) REFERENCES course(course_id)
 );
 
 
@@ -60,5 +60,5 @@ CREATE TABLE review(
     create_time TIMESTAMP,
     FOREIGN KEY(InstructorID) REFERENCES instructor(ID),
     FOREIGN KEY(StudentID) REFERENCES student(ID),
-    FOREIGN KEY(CourseID) REFERENCES course(ID)
+    FOREIGN KEY(CourseID) REFERENCES course(course_id)
 );
