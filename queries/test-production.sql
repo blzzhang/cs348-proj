@@ -9,6 +9,8 @@ values ('Brendan Zhang', 'CFM', '4A', 'blzhang@uwaterloo.ca', 'badpassword', 1, 
 insert into review  (Rating, Liked, Useful, Easy, Interesting, WellStructured, StudentID, InstructorID, CourseID, Description)
 values (4, 5, 5, 3, 4, 4, 1, 1, 1, 'CS 348 is a great course!');
 
+select course_name, description, easy, email, interesting, liked, rating, useful, well_structured from review;
+
 -- 4
 select c.Name, avg(f.Rating) as OverallRating
 from course c
@@ -26,3 +28,9 @@ on c.InstructorID = i.ID
 where c.id = 1;
 
 -- 6
+select title
+from course
+where course_id in
+(select prereqs_course_id
+from course_prereqs
+where course_id = 1);
