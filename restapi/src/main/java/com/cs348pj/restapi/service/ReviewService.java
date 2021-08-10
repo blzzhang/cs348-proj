@@ -12,4 +12,6 @@ public interface ReviewService {
     ReadableReview add(ReviewRequestParam params, UUID studentId) throws Exception;
 
     List<ReadableReview> listAll(String courseName) throws Exception;
+
+    Double getAvarageRating(String courseName) throws Exception;
 }

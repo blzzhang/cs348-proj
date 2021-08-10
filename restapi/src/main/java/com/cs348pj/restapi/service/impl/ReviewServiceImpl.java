@@ -36,8 +36,19 @@ public class ReviewServiceImpl implements ReviewService {
         return ReadableReview.create(review);
     }
 
+    @Override
     public List<ReadableReview> listAll(String courseName) throws Exception {
         List<Review> reviews = repository.listAllByCourseName(courseName);
         return ReadableReview.createList(reviews);
+    }
+
+    @Override
+    public Double getAvarageRating(String courseName) throws Exception {
+        List<Review> reviews = repository.listAllByCourseName(courseName);
+        Double sum = 0.0;
+        for(Review review : reviews) {
+            sum += Integer.parseInt(review.getRating());
+        }
+        return sum / reviews.size();
     }
 }

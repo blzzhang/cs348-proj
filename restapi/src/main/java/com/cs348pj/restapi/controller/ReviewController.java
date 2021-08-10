@@ -28,6 +28,13 @@ public class ReviewController {
         return ok(reviewService.listAll(courseName));
     }
 
+    /** get average rating for a course */
+    @RequestMapping(value = "/getAvarageRating", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<Double> getAvarageRating(@RequestParam("courseName") String courseName) throws Exception {
+        return ok(reviewService.getAvarageRating(courseName));
+    }
+
     //TODO
 //    /** List Review for a instructor */
 //    @RequestMapping(value = "/listAllForInstructor", method = RequestMethod.GET)
