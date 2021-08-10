@@ -1,4 +1,4 @@
-package com.cs348pj.restapi.dto;
+package com.cs348pj.restapi.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

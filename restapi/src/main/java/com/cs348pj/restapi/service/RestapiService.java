@@ -1,10 +1,13 @@
 package com.cs348pj.restapi.service;
 
-import com.cs348pj.restapi.dto.Course;
+import com.cs348pj.restapi.model.Course;
 
 public interface RestapiService {
 
-    void populateSample(Integer courseId, String title, String description);
+    void populateSample(Integer courseId, String career, String title,
+                        String description, String term, String subject, String Catalog) throws Exception;
 
     Iterable<Course> findAllById(String id);
+
+    void addInstructors();
 }

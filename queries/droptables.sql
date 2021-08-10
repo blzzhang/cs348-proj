@@ -2,7 +2,9 @@ DROP TABLE IF EXISTS enrolled;
 
 DROP TABLE IF EXISTS prerequisite;
 
-DROP TABLE IF EXISTS feedback;
+DROP TABLE IF EXISTS review;
+
+DROP TABLE IF EXISTS course_prereqs;
 
 DROP TABLE IF EXISTS course;
 
