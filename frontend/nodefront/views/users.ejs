@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%=  %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <a href="/">Back</a>
     <h1>Users</h1>
-    <p>Login</p>
+    <h2>Login</h2>
 
     <form>
       <label for="username">Username</label>
@@ -14,18 +15,11 @@
       <input type="text" id="username" name="username"><br><br>
       <label for="pwd">Password</label>
       <br><br>
-      <input type="text" id="pwd" name="pwd"><br><br>
+      <input type="password" id="pwd" name="pwd"><br><br>
       <input type="submit" value="Submit">
     </form>
 
-    <form>
-      <label for="username">Signup</label>
-      <br><br>
-      <input type="text" id="username" name="username"><br><br>
-      <label for="pwd">Password</label>
-      <br><br>
-      <input type="text" id="pwd" name="pwd"><br><br>
-      <input type="submit" value="Submit">
-    </form>
+    <a href="/register">Register here</a>
+
   </body>
 </html>

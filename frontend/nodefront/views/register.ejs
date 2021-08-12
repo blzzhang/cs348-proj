@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/users">Back to login</a>
+    <h1>Register</h1>
+
+    <form action = "/register" method="post">
+      <label for="uname">Email</label>
+      <br><br>
+      <input type="text" id="uname" name="uname"><br><br>
+
+      <label for="pwd">Password</label>
+      <br><br>
+      <input type="password" id="pwd" name="pwd"><br><br>
+
+      <label for="name">Name</label>
+      <br><br>
+      <input type="text" id="name" name="name"><br><br>
+
+      <label for="major">Major (Optional)</label>
+      <br><br>
+      <input type="text" id="major" name="major"><br><br>
+
+      <label for="s_id">Student ID (Optional)</label>
+      <br><br>
+      <input type="text" id="s_id" name="s_id"><br><br>
+
+      <label for="year">Year (Optional)</label>
+      <br><br>
+      <input type="text" id="year" name="year"><br><br>
+
+
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

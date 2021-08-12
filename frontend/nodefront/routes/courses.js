@@ -50,11 +50,13 @@ function api_get_course(subject, catalog) {
 
 /* GET courses listing. */
 router.get('/', function(req, res, next) {
-    let course_code = req.query.course_id || "cs348";
+    let course_code = req.query.course || "cs348";
     let patt1 = /[a-zA-Z]/g;
     let patt2 = /[0-9]/g;
-    let subject = course_code.match(patt1);
-    let catalog_num = course_code.match(patt2);
+    let subject = course_code.match(patt1).join("").toUpperCase();
+    let catalog_num = course_code.match(patt2).join("");
+    console.log(subject);
+    console.log(catalog_num);
     let course_data= {};
     api_get_course(subject, catalog_num)
         .then(response => {

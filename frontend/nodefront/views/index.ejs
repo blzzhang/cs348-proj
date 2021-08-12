@@ -12,6 +12,11 @@
     <li><a href="/users">Login/Signup</a> </li>
 
     <h1>Click here to find courses</h1>
-    <li><a href="/courses">Courses   </a> </li>
+    <form action = "/courses" method="get">
+      <label for="username">Enter the course code</label>
+      <br><br>
+      <input type="text" id="course" name="course"><br><br>
+      <input type="submit" value="Submit">
+    </form>
   </body>
 </html>
