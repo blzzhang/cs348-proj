@@ -5,15 +5,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Courses</h1>
-    <ul>
-      <%
-      var list = '';
-      for (i = 0; i < userlist.length; i++) {
-        list += '<li><a href="mailto:' + userlist[i].email + '">' + userlist[i].username + '</a></li>';
-      }
-      %>
-      <%- list %>
-    </ul>
+    <h1><%= title %></h1>
+    <h1><%= subjectCode %></h1>
+    <h1><%= termCode %></h1>
   </body>
 </html>
