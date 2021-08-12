@@ -68,7 +68,7 @@ curl -v -X POST localhost:8080/courses/populate
 ```
 Upon successful data setup, the console will display the following: `populated`.
 
-## Populating Instructor data
+## Populating Instructor data for Course table
 However, the column instructor is not yet populated using this endpoint since UWaterloo's OpenData API does not provide
 any instructor data.
 - First, verify that courses.txt and instructors.txt under `src/main/resources` are present with data.
@@ -79,6 +79,13 @@ After the above steps, there is another endpoint which needs to be hit:
 curl -v -X POST localhost:8080/courses/instructors
 ```
 This will successfully populate instructor data and should print this on console: `instructors added`.
+
+## Populating Instructor table
+Instructor table's data is populated by reaching out to the folloing endpoint:
+```shell script
+curl -v -X POST localhost:8080/instructors/populate
+```
+Upon successful data setupm the console will return http ok response with the following body: `Table Populated`
 # Supported Features
 Currently, there are several features you can use by making a request to our endpoints. 
 
