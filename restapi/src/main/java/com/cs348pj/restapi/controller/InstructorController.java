@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.ResponseEntity.internalServerError;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
@@ -16,6 +17,18 @@ import static org.springframework.http.ResponseEntity.ok;
 public class InstructorController {
     @Autowired
     InstructorService instructorService;
+
+    /** populate the table using an endpoint **/
+    @RequestMapping(value = "/populate", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<String> populateTable() {
+        try {
+            instructorService.populate();
+            return ok("Table Populated");
+        } catch (Exception e) {
+            return internalServerError().body("Table not populated");
+        }
+    }
     /** List all prof teaching a specific course */
     @RequestMapping(value = "/listAllForCourse", method = RequestMethod.GET)
     @ResponseBody
