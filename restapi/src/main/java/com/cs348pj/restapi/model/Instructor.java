@@ -9,8 +9,6 @@ import org.hibernate.annotations.Type;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -23,7 +21,6 @@ public class Instructor {
     @GeneratedValue
     private UUID id;
 
-//    private Integer id;
     @NotNull
     private String name;
 
