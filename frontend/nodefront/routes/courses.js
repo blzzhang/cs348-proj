@@ -70,23 +70,36 @@ function get_courses(req, res) {
             let description = data['description'];
             let catalogNumber = data['catalogNumber'];
             let reviews = [];
+            let avgRating = 'N/A';
+            let instructor = 'Xi He';
 
             // reviews for course
             axios.get(`http://localhost:8080/reviews/listAllForCourse?courseName=${subjectCode+catalogNumber}`)
                 .then(resp => {
-                    var review_data = resp['data']
-                    reviews = review_data;
+                    reviews = resp['data'];
                     console.log(reviews);
-                    res.render('courses', {
-                        courseId: courseId,
-                        subjectCode: subjectCode,
-                        termCode: termCode,
-                        catalogNumber: catalogNumber,
-                        title: title,
-                        instructors: instructors,
-                        description: description,
-                        reviews: reviews
-                    });
+
+                    axios.get(`http://localhost:8080/reviews/getAvarageRating?courseName=${subjectCode+catalogNumber}`)
+                        .then(resp => {
+                            avgRating = resp['data'];
+                            res.render('courses', {
+                                courseId: courseId,
+                                subjectCode: subjectCode,
+                                termCode: termCode,
+                                catalogNumber: catalogNumber,
+                                title: title,
+                                instructors: instructors,
+                                description: description,
+                                reviews: reviews,
+                                avgRating: avgRating,
+                                instructor: instructor,
+                            });
+
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            res.redirect('/courses?course='+courseName);
+                        })
                 })
                 .catch(error => {
                     console.error(error);
