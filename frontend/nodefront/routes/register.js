@@ -26,7 +26,9 @@ router.post('/', function(req, res) {
         .then(resp => {
             console.log(`statusCode: ${resp.status}`);
             console.log(resp);
-            res.render('users');
+            res.render('users', {
+                name: ""
+            });
         })
         .catch(error => {
             console.error(error)

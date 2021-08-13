@@ -2,24 +2,39 @@
 <html>
   <head>
     <title><%=  %></title>
+    <div><%= name%></div>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <a href="/">Back</a>
     <h1>Users</h1>
-    <h2>Login</h2>
 
-    <form>
-      <label for="username">Username</label>
-      <br><br>
-      <input type="text" id="username" name="username"><br><br>
-      <label for="pwd">Password</label>
-      <br><br>
-      <input type="password" id="pwd" name="pwd"><br><br>
-      <input type="submit" value="Submit">
-    </form>
+    <div id="login">
+      <h2>Login</h2>
 
-    <a href="/register">Register here</a>
+      <form action = "/users" method="post">
+        <label for="username">Username</label>
+        <br><br>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="pwd">Password</label>
+        <br><br>
+        <input type="password" id="pwd" name="pwd"><br><br>
+        <input type="submit" value="Submit">
+      </form>
 
+      <a href="/register">Register here</a>
+    </div>
+
+    <div id = "logged_in", style="display: none;">
+      <h1>You are already logged in!</h1>
+    </div>
+
+    <script>
+          var name = '<%- name %>';
+          if (name) {
+              document.getElementById('login').style.display='none';
+              document.getElementById('logged_in').style.display='block';
+          }
+    </script>
   </body>
 </html>
