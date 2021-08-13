@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var axios = require('axios');
 var name = require('../name');
+var courses = require('./courses');
+const querystring = require('querystring');
 
 
 // post
@@ -13,24 +15,30 @@ router.post('/', function(req, res, next) {
     let well_structured = req.body.well_structured;
     let rating = req.body.rating;
     let description = req.body.description;
-    let name = name.name.username;
-    let courseId = req.body.courseId;
+    let courseName = req.body.courseName;
+    let student_id = '3b7f049f-6127-4335-b5e1-02b6185c3653';
 
-    axios.post(`http://localhost:8080/reviews/${}add`, {
-        email: uname,
-        password : pwd,
-        name : name
+    console.log(req.body.description);
+
+    axios.post(`http://localhost:8080/reviews/${student_id}/add`, {
+        easy: easy,
+        interesing : interesting,
+        liked : liked,
+        useful : useful,
+        wellStructured : well_structured,
+        rating : rating,
+        description : description,
+        courseName : courseName,
     })
         .then(resp => {
-            console.log(`statusCode: ${resp.status}`);
             console.log(resp);
-            res.render('users', {
-                name: ""
-            });
+
+            res.redirect('/courses?course='+courseName);
+
         })
         .catch(error => {
-            console.error(error)
-            res.render('register');
+            // console.error(error);
+            res.redirect('/courses?course='+courseName);
         });
 
 });

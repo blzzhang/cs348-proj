@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var http = require('http');
 var name = require('../name');
+var axios = require('axios');
 
 
 function api_get_course(subject, catalog) {
@@ -48,9 +49,7 @@ function api_get_course(subject, catalog) {
     });
 }
 
-
-/* GET courses listing. */
-router.get('/', function(req, res, next) {
+function get_courses(req, res) {
     console.log('name');
     console.log(name.name.username);
     let course_code = req.query.course || "cs348";
@@ -62,25 +61,50 @@ router.get('/', function(req, res, next) {
     console.log(catalog_num);
     api_get_course(subject, catalog_num)
         .then(response => {
-        data = response[0];
-        let courseId = data['courseId'];
-        let subjectCode = data['subjectCode'];
-        let termCode = data['termCode'];
-        let title = data['title'];
-        let instructors = data['instructors'];
-        let description = data['description'];
-            res.render('courses', {
-                courseId: courseId,
-                subjectCode: subjectCode,
-                termCode: termCode,
-                title: title,
-                instructors: instructors,
-                description: description
-            });
+            data = response[0];
+            let courseId = data['courseId'];
+            let subjectCode = data['subjectCode'];
+            let termCode = data['termCode'];
+            let title = data['title'];
+            let instructors = data['instructors'];
+            let description = data['description'];
+            let catalogNumber = data['catalogNumber'];
+            let reviews = [];
+
+            // reviews for course
+            axios.get(`http://localhost:8080/reviews/listAllForCourse?courseName=${subjectCode+catalogNumber}`)
+                .then(resp => {
+                    var review_data = resp['data']
+                    reviews = review_data;
+                    console.log(reviews);
+                    res.render('courses', {
+                        courseId: courseId,
+                        subjectCode: subjectCode,
+                        termCode: termCode,
+                        catalogNumber: catalogNumber,
+                        title: title,
+                        instructors: instructors,
+                        description: description,
+                        reviews: reviews
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                    res.redirect('/courses?course='+courseName);
+                });
         })
         .catch(error => {
             console.log(error);
         });
+};
+
+function get_reviews() {
+
+}
+
+/* GET courses listing. */
+router.get('/', function(req, res) {
+    get_courses(req, res);
 });
 
 module.exports = router;
