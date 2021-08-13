@@ -8,7 +8,7 @@ var axios = require('axios');
 function api_get_course(subject, catalog) {
 
     return new Promise((resolve, reject) => {
-        http.get('http://localhost:8080/courses/4417', (res) => {
+        http.get(`http://localhost:8080/courses/${subject}/${catalog}`, (res) => {
             var { statusCode } = res;
             var contentType = res.headers['content-type'];
 
@@ -71,7 +71,6 @@ function get_courses(req, res) {
             let catalogNumber = data['catalogNumber'];
             let reviews = [];
             let avgRating = 'N/A';
-            let instructor = 'Xi He';
 
             // reviews for course
             axios.get(`http://localhost:8080/reviews/listAllForCourse?courseName=${subjectCode+catalogNumber}`)
@@ -91,8 +90,7 @@ function get_courses(req, res) {
                                 instructors: instructors,
                                 description: description,
                                 reviews: reviews,
-                                avgRating: avgRating,
-                                instructor: instructor,
+                                avgRating: avgRating
                             });
 
                         })
@@ -103,7 +101,7 @@ function get_courses(req, res) {
                 })
                 .catch(error => {
                     console.error(error);
-                    res.redirect('/courses?course='+courseName);
+                    res.redirect('/error');
                 });
         })
         .catch(error => {

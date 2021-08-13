@@ -2,7 +2,6 @@
 <html>
 <head>
   <title><%=  %></title>
-  <div><%= name%></div>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
@@ -10,6 +9,9 @@
     <img class="hero" src="img/user_hero.png">
     <div class="body-content">
       <div class="sign-card">
+        <div class = "logged_in", style="display: none; color: white">
+          <h1>You are already logged in <%= name%>!</h1>
+        </div>
         <div class="sign-inner-content">
           <h2>Login</h2>
           <form action = "/users" method="post" style="width: 240px;">
@@ -28,15 +30,12 @@
       </div>
     </div>
   </div>
-  <div id = "logged_in", style="display: none;">
-    <h1>You are already logged in!</h1>
-  </div>
 
   <script>
     var name = '<%- name %>';
     if (name) {
-      document.getElementById('login').style.display='none';
-      document.getElementById('logged_in').style.display='block';
+      document.getElementsByClassName('sign-inner-content')[0].style.display='none';
+      document.getElementsByClassName('logged_in')[0].style.display='block';
     }
   </script>
 </body>
