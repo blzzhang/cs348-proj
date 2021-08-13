@@ -45,5 +45,11 @@ public class RestapiController {
     Iterable<Course> getClassById(@PathVariable String id) {
         return restapiService.findAllById(id);
     }
+
+    @GetMapping("/{subject}/{catalog}")
+    public @ResponseBody
+    Iterable<Course> getClassByCourseCode(@PathVariable String subject, @PathVariable String catalog) {
+        return restapiService.findByCourseCode(subject, catalog);
+    }
 }
 
