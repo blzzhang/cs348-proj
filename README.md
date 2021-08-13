@@ -15,6 +15,21 @@ mysql> source <path_to_files>/createtables.sql
 mysql> source <path_to_files>/populatedb.sql
 ```
 
+# App Usage
+
+First, you must install node.
+
+Then, in the correct directory (cs348-proj\frontend\nodefront), run
+```
+npm install
+```
+
+followed by,
+```
+npm start
+```
+Then visit localhost:3000 or whichever port your node uses.
+
 # Test-sample
 
 To see a sample of database features our app has, run the below. 
