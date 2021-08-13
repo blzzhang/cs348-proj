@@ -69,6 +69,18 @@ h3 {
   margin-right: auto;
 }
 
+.avg-rating {
+  color: white;
+  position: absolute;
+  font-weight: bold;
+  font-size: 24px;
+  bottom: 0px;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 .body-content {
   width: 100%;

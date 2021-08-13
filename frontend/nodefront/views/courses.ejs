@@ -14,7 +14,7 @@
     <img class="hero" src="img/course_hero.png">
     <div class="body-content">
       <h1 class="course-code">
-        <%= subjectCode %> <%= courseId %>
+        <%= subjectCode %> <%= catalogNumber %>
       </h1>
       <h2 class="course-title">
         <%= title %>
@@ -24,6 +24,9 @@
       </p>
       <p class="term-code">
         Term code: <%= termCode %>
+      </p>
+      <p class="avg-rating">
+        Average rating: <%= avgRating %> / 5
       </p>
     </div>
   </div>
@@ -38,11 +41,40 @@
         <h2>Instructors:</h2>
         <div class="instructors-section">
           <img src="img/instructor-icon.jpg" height="50px" width="50px">
-          <span style="margin-left: 15px;"><%= instructors %></span>
+          <span style="margin-left: 15px; font-size: 24px;"><%= instructor %></span>
         </div>
       </div>
     </div>
-  </div> 
+  </div>
+
+  <div class="body-content" style="margin-top: 80px;">
+    <div class="card">
+      <div class="container">
+        <h2>Reviews</h2>
+          <% for (var i = 0; i < reviews.length ; i++) { %>
+          <h3>Review <%=i+1%></h3>
+        <div class="ratings-in-line">
+        <div><%= 'Easiness:' + ' '+ reviews[i]['easy'] %> / 5 </div>
+        <div><%= 'Interesting:' + ' '+ reviews[i]['interesing'] %> / 5 </div>
+        <div><%= 'Liked:' + ' '+ reviews[i]['liked'] %> / 5</div>
+        <div><%= 'Useful:' + ' '+ reviews[i]['useful'] %> / 5</div>
+        <div> <%= 'Well-structured:' + ' ' + reviews[i]['wellStructured'] %> / 5</div>
+        </div>
+          <br>
+          <p> <b><%= 'Overall Rating:' + ' '+ reviews[i]['rating'] %> / 5</b> </p>
+
+        <br>
+        <%= 'Additional comments:' + ' ' + reviews[i]['description'] %>
+        <br>
+<br>
+        <br>
+          <% } %>
+
+      </div>
+    </div>
+  </div>
+
+  <!--Index reviews-->
 
 
   <!--Add reviews-->
@@ -71,6 +103,14 @@
         <label for="rating">Overall</label>
         <input type="number" min="1" max="5" id="rating" name="rating">
         </div>
+
+        <!--do not remove this!!-->
+        <label for="courseName">Course</label>
+        <br><br>
+        <input type="text" id="courseName" readonly value=<%= subjectCode %><%= catalogNumber %>
+        name="courseName"><br><br>
+
+        <!--do not remove this!!-->
 
         <br>
         <h3>Additional comments:</h3>
