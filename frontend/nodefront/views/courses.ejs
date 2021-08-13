@@ -6,12 +6,22 @@
   </head>
   <body>
     <a href="/">Back</a>
-    <h1><%= title %></h1>
-    <h1><%= subjectCode %></h1>
-    <h1><%= subjectCode %></h1>
-    <h1><%= courseId %></h1>
-    <h1><%= description %></h1>
+
+    <div class="hero-page">
+        <img class="hero" src="img/course_hero.png" width="fill">
+        <h1 class="course-code">
+            <%= subjectCode %> <%= courseId %>
+        </h1>
+          
+        <h2 class="course-title">
+            <%= title %>
+        </h2>
+    </div>
+    
+    <div class="body-content">
+      <p><%= description %></p>
     <h1><%= termCode %></h1>
     <h1><%= instructors %></h1>
+    </div>  
   </body>
 </html>

@@ -1,8 +1,49 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.hero {
+  display: block;
+  margin-top: 50px;
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-page {
+  position: relative;
+}
+
+.course-code{
+  color: white;
+  position: absolute;
+  bottom: 80px;
+  left: 240px;
+}
+
+.course-title {
+  color: white;
+  position: absolute;
+  bottom: 40px;
+  left: 240px;
+}
+
+.body-content {
+  width: 90%;
+  margin: auto;
+  max-width: 790px;
+  margin-top: 60px;
 }
