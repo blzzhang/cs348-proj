@@ -16,7 +16,6 @@ h2 {
 
 .hero {
   display: block;
-  margin-top: 50px;
   width: 100%;
   max-width: 1440px;
   margin-left: auto;
@@ -25,25 +24,62 @@ h2 {
 
 .hero-page {
   position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .course-code{
   color: white;
   position: absolute;
-  bottom: 80px;
+  bottom: 120px;
   left: 240px;
 }
 
 .course-title {
   color: white;
   position: absolute;
+  bottom: 80px;
+  left: 240px;
+}
+
+.course-id {
+  color: white;
+  position: absolute;
   bottom: 40px;
   left: 240px;
 }
 
-.body-content {
-  width: 90%;
-  margin: auto;
-  max-width: 790px;
-  margin-top: 60px;
+.term-code {
+  color: white;
+  position: absolute;
+  bottom: 40px;
+  left: 400px;
 }
+
+
+.body-content {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inner-margin {
+  margin-top: 40px;
+  margin-left: 240px;
+  margin-right: 240px;
+}
+
+.content {
+  display: flex;
+}
+
+.content img {
+  margin-right: 10px;
+  display: block;
+}
+
+.content h3,
+.content p {margin: 0;}

@@ -16,12 +16,25 @@
         <h2 class="course-title">
             <%= title %>
         </h2>
+        <p class="course-id">
+            Course id: <%= courseId %>
+        </p>
+        <p class="term-code">
+            Term code: <%= termCode %>
+        </p>
     </div>
     
     <div class="body-content">
-      <p><%= description %></p>
-    <h1><%= termCode %></h1>
-    <h1><%= instructors %></h1>
-    </div>  
+      <div class="inner-margin">
+        <p><%= description %></p>
+
+        <h2>Instructors</h2>
+        <div><p style="float: left;"><img src="img/instructor-icon.jpg" height="50px" width="50px" ></p>
+        <h2 style="margin-top: 30px;"><%= instructors %></h2>
+        
+        </div>
+    </div>
+
+    <img class="hero" src="img/course_footer.png" width="fill">
   </body>
 </html>
