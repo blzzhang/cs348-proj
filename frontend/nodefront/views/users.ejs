@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%=  %></title>
-    <div><%= name%></div>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <a href="/">Back</a>
-    <h1>Users</h1>
-
-    <div id="login">
-      <h2>Login</h2>
-
-      <form action = "/users" method="post">
-        <label for="username">Username</label >
-        <br><br>
-        <input type="text" id="username" name="username"><br><br>
-        <label for="pwd">Password</label>
-        <br><br>
-        <input type="password" id="pwd" name="pwd"><br><br>
-        <input type="submit" value="Submit">
-      </form>
-
-      <a href="/register">Register here</a>
+<head>
+  <title><%=  %></title>
+  <div><%= name%></div>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <div class="hero-page">
+    <img class="hero" src="img/user_hero.png">
+    <div class="body-content">
+      <div class="sign-card">
+        <div class="sign-inner-content">
+          <h2>Login</h2>
+          <form action = "/users" method="post" style="width: 240px;">
+            <label for="username">Username</label>
+            <br>
+            <input type="text" id="username" name="username" style="width: 100%;" placeholder="Mr.Goose"><br><br>
+            <label for="pwd">Password</label>
+            <br>
+            <input type="password" id="pwd" name="pwd" style="width: 100%;" placeholder="Gooseypassword"><br><br>
+            <input type="submit" value="Submit"> <br>
+            <br>
+            <br>
+            <a href="/register">Not registered? Sign up here</a>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
+  <div id = "logged_in", style="display: none;">
+    <h1>You are already logged in!</h1>
+  </div>
 
-    <div id = "logged_in", style="display: none;">
-      <h1>You are already logged in!</h1>
-    </div>
-
-    <script>
-          var name = '<%- name %>';
-          if (name) {
-              document.getElementById('login').style.display='none';
-              document.getElementById('logged_in').style.display='block';
-          }
-    </script>
-  </body>
+  <script>
+    var name = '<%- name %>';
+    if (name) {
+      document.getElementById('login').style.display='none';
+      document.getElementById('logged_in').style.display='block';
+    }
+  </script>
+</body>
 </html>

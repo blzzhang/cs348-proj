@@ -174,3 +174,25 @@ h3 {
   border-radius: 10px;
   background: #E2B528;
 }
+
+.sign-card {
+  color: black;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  bottom: 140px;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-inner-content {
+  background-color: white;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  padding: 0px 40px 32px 32px;
+  margin-left: 10px;
+}

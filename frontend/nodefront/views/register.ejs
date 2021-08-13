@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <a href="/users">Back to login</a>
-    <h1>Register</h1>
+<head>
+  <title><%= %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <div class="hero-page">
+    <img class="hero" src="img/register_hero.png">
+    <div class="body-content">
+        <div class="sign-card">
+          <div class="sign-inner-content">
+            <h2>Register</h2>
+            <form action = "/register" method="post" style="width: 240px;">
+              <label for="uname">Email</label>
+              <br>
+              <input type="text" id="uname" name="uname" style="width: 100%;" placeholder="goose@uwaterloo.ca"><br><br>
 
-    <form action = "/register" method="post">
-      <label for="uname">Email</label>
-      <br><br>
-      <input type="text" id="uname" name="uname"><br><br>
+              <label for="pwd">Password</label>
+              <br>
+              <input type="password" id="pwd" name="pwd" style="width: 100%;" placeholder="6-13 characters"><br><br>
 
-      <label for="pwd">Password</label>
-      <br><br>
-      <input type="password" id="pwd" name="pwd"><br><br>
+              <label for="name">Name</label>
+              <br>
+              <input type="text" id="name" name="name" style="width: 100%;" placeholder="Goose Goose"><br><br>
 
-      <label for="name">Name</label>
-      <br><br>
-      <input type="text" id="name" name="name"><br><br>
+              <label for="major">Major (Optional)</label>
+              <br>
+              <input type="text" id="major" name="major" style="width: 100%;" placeholder="Goose Studies"><br><br>
 
-      <label for="major">Major (Optional)</label>
-      <br><br>
-      <input type="text" id="major" name="major"><br><br>
+              <label for="s_id">Student ID (Optional)</label>
+              <br>
+              <input type="text" id="s_id" name="s_id" style="width: 100%;" placeholder="1234567890"><br><br>
+              <label for="year">Year (Optional)</label>
+              <br>
+              <input type="text" id="year" name="year" style="width: 100%;" placeholder="2022"><br><br>
 
-      <label for="s_id">Student ID (Optional)</label>
-      <br><br>
-      <input type="text" id="s_id" name="s_id"><br><br>
-
-      <label for="year">Year (Optional)</label>
-      <br><br>
-      <input type="text" id="year" name="year"><br><br>
-
-
-      <input type="submit" value="Submit">
-    </form>
-  </body>
+              <input type="submit" value="Submit">
+              <br>
+              <br>
+              <br>
+              <a href="/users">Already have an account?</a>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
