@@ -4,6 +4,9 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+
+  <!--course stuffs-->
+
   <body>
     <a href="/">Back</a>
 
@@ -24,4 +27,41 @@
     <h1><%= instructors %></h1>
     </div>  
   </body>
+
+  <!--reviews-->
+
+  <h1>Add Review</h1>
+  <form action = "/reviews" method="post">
+    <label for="easy">Easy Rating</label>
+    <br><br>
+    <input type="number" min="1" max="5" id="easy" name="easy"><br><br>
+
+    <label for="interesting">Interesting Rating</label>
+    <br><br>
+    <input type="number" min="1" max="5" id="interesting" name="interesting"><br><br>
+
+    <label for="liked">Liked Rating</label>
+    <br><br>
+    <input type="number" min="1" max="5" id="liked" name="liked"><br><br>
+
+    <label for="useful">Useful Rating</label>
+    <br><br>
+    <input type="number" min="1" max="5" id="useful" name="useful"><br><br>
+
+    <label for="well_structured">Well Structured Rating</label>
+    <br><br>
+    <input type="number" min="1" max="5" id="well_structured" name="well_structured"><br><br>
+
+    <label for="rating">Overall Rating</label>
+    <br><br>
+    <input type="number" min="1" max="5" id="rating" name="rating"><br><br>
+
+    <label for="description">Description</label>
+    <br><br>
+    <input type="text" id="description" name="description"><br><br>
+
+    <div id="courseId" style="visibility: hidden"><%= courseId %></div>
+
+    <input type="submit" value="Submit">
+  </form>
 </html>
