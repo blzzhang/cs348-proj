@@ -13,7 +13,7 @@
   <div class="hero-page">
     <img class="hero" src="img/course_hero.png" width="fill">
     <h1 class="course-code">
-      <%= subjectCode %> <%= courseId %>
+      <%= subjectCode %> <%= catalogNumber %>
     </h1>
 
     <h2 class="course-title">
@@ -37,7 +37,25 @@
         
       </div>
 
-      <!--reviews-->
+      <!--Index reviews-->
+      <h1>Reviews</h1>
+      <ul>
+        <% for (var i = 0; i < reviews.length ; i++) { %>
+        <h1>Review <%=i+1%></h1>
+         <%= reviews[i]['course_name'] %>
+         <%= reviews[i]['easy'] %>
+         <%= reviews[i]['interesting'] %>
+        <%= reviews[i]['liked'] %>
+        <%= reviews[i]['rating'] %>
+        <%= reviews[i]['useful'] %>
+        <%= reviews[i]['well_structured'] %>
+         <%= reviews[i]['description'] %>
+        <% } %>
+      </ul>
+
+
+
+      <!--Add reviews-->
 
       <h1>Add Review</h1>
       <form action = "/reviews" method="post">
@@ -69,7 +87,13 @@
         <br><br>
         <input type="text" id="description" name="description"><br><br>
 
-        <div id="courseId" style="visibility: hidden"><%= courseId %></div>
+        <!--do not remove this!!-->
+        <label for="courseName">Course</label>
+        <br><br>
+        <input type="text" id="courseName" readonly value=<%= subjectCode %><%= catalogNumber %>
+               name="courseName"><br><br>
+
+        <!--do not remove this!!-->
 
         <input type="submit" value="Submit">
       </form>
