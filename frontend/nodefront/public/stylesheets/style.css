@@ -1,5 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #E5E5E5;
 }
 
 a {
@@ -14,72 +15,86 @@ h2 {
   font-size: 24px;
 }
 
+h3 {
+  font-size: 18px;
+}
+
 .hero {
-  display: block;
   width: 100%;
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero-page {
   position: relative;
   width: 100%;
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .course-code{
   color: white;
   position: absolute;
-  bottom: 120px;
-  left: 240px;
+  bottom: 140px;
+  width: 100%;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .course-title {
   color: white;
   position: absolute;
-  bottom: 80px;
-  left: 240px;
+  bottom: 120px;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .course-id {
   color: white;
   position: absolute;
-  bottom: 40px;
-  left: 240px;
+  bottom: 60px;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .term-code {
   color: white;
   position: absolute;
   bottom: 40px;
-  left: 400px;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 .body-content {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.inner-margin {
-  margin-top: 40px;
-  margin-left: 240px;
-  margin-right: 240px;
+.instructors-section {
+  display:flex;
+  align-items:center;
 }
 
-.content {
+.card {
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  background-color: white;
+}
+
+.container {
+  padding: 36px;
+}
+
+.ratings-in-line {
   display: flex;
+  justify-content: space-between;
 }
-
-.content img {
-  margin-right: 10px;
-  display: block;
-}
-
-.content h3,
-.content p {margin: 0;}

@@ -11,94 +11,78 @@
   <a href="/">Back</a>
 
   <div class="hero-page">
-    <img class="hero" src="img/course_hero.png" width="fill">
-    <h1 class="course-code">
-      <%= subjectCode %> <%= catalogNumber %>
-    </h1>
-
-    <h2 class="course-title">
-      <%= title %>
-    </h2>
-    <p class="course-id">
-      Course id: <%= courseId %>
-    </p>
-    <p class="term-code">
-      Term code: <%= termCode %>
-    </p>
+    <img class="hero" src="img/course_hero.png">
+    <div class="body-content">
+      <h1 class="course-code">
+        <%= subjectCode %> <%= courseId %>
+      </h1>
+      <h2 class="course-title">
+        <%= title %>
+      </h2>
+      <p class="course-id">
+        Course id: <%= courseId %>
+      </p>
+      <p class="term-code">
+        Term code: <%= termCode %>
+      </p>
+    </div>
   </div>
 
-  <div class="body-content">
-    <div class="inner-margin">
-      <p><%= description %></p>
+  <div class="body-content" style="margin-top: 40px;">
+    <div class="card">
+      <div class="container">
+        <h2 >Course description:</h2>
+        <p><%= description %></p>
 
-      <h2>Instructors</h2>
-      <div><p style="float: left;"><img src="img/instructor-icon.jpg" height="50px" width="50px" ></p>
-        <h2 style="margin-top: 30px;"><%= instructors %></h2>
-        
+        <br>
+        <h2>Instructors:</h2>
+        <div class="instructors-section">
+          <img src="img/instructor-icon.jpg" height="50px" width="50px">
+          <span style="margin-left: 15px;"><%= instructors %></span>
+        </div>
       </div>
-
-      <!--Index reviews-->
-      <h1>Reviews</h1>
-      <ul>
-        <% for (var i = 0; i < reviews.length ; i++) { %>
-        <h1>Review <%=i+1%></h1>
-         <%= reviews[i]['course_name'] %>
-         <%= reviews[i]['easy'] %>
-         <%= reviews[i]['interesting'] %>
-        <%= reviews[i]['liked'] %>
-        <%= reviews[i]['rating'] %>
-        <%= reviews[i]['useful'] %>
-        <%= reviews[i]['well_structured'] %>
-         <%= reviews[i]['description'] %>
-        <% } %>
-      </ul>
+    </div>
+  </div> 
 
 
-
-      <!--Add reviews-->
-
-      <h1>Add Review</h1>
+  <!--Add reviews-->
+  <div class="body-content" style="margin-top:80px;">
+   <div class="card">
+     <div class="container">
+      <h2>Add your own review:</h2>
+      <h3>Numerical ratings (1-5): </h3>
       <form action = "/reviews" method="post">
-        <label for="easy">Easy Rating</label>
+        <div class="ratings-in-line">
+        <label for="easy">Easy</label>
+        <input type="number" min="1" max="5" id="easy" name="easy">
+
+        <label for="interesting">Interesting</label>
+        <input type="number" min="1" max="5" id="interesting" name="interesting">
+
+        <label for="liked">Enjoyable</label>
+        <input type="number" min="1" max="5" id="liked" name="liked">
+
+        <label for="useful">Useful</label>
+        <input type="number" min="1" max="5" id="useful" name="useful">
+
+        <label for="well_structured">Well Structured</label>
+        <input type="number" min="1" max="5" id="well_structured" name="well_structured">
+
+        <label for="rating">Overall</label>
+        <input type="number" min="1" max="5" id="rating" name="rating">
+        </div>
+
+        <br>
+        <h3>Additional comments:</h3>
+        <input type="text" id="description" name="description" style="width: 100%; height: 56px;">
+
+
         <br><br>
-        <input type="number" min="1" max="5" id="easy" name="easy"><br><br>
-
-        <label for="interesting">Interesting Rating</label>
-        <br><br>
-        <input type="number" min="1" max="5" id="interesting" name="interesting"><br><br>
-
-        <label for="liked">Liked Rating</label>
-        <br><br>
-        <input type="number" min="1" max="5" id="liked" name="liked"><br><br>
-
-        <label for="useful">Useful Rating</label>
-        <br><br>
-        <input type="number" min="1" max="5" id="useful" name="useful"><br><br>
-
-        <label for="well_structured">Well Structured Rating</label>
-        <br><br>
-        <input type="number" min="1" max="5" id="well_structured" name="well_structured"><br><br>
-
-        <label for="rating">Overall Rating</label>
-        <br><br>
-        <input type="number" min="1" max="5" id="rating" name="rating"><br><br>
-
-        <label for="description">Description</label>
-        <br><br>
-        <input type="text" id="description" name="description"><br><br>
-
-        <!--do not remove this!!-->
-        <label for="courseName">Course</label>
-        <br><br>
-        <input type="text" id="courseName" readonly value=<%= subjectCode %><%= catalogNumber %>
-               name="courseName"><br><br>
-
-        <!--do not remove this!!-->
-
         <input type="submit" value="Submit">
       </form>
     </div>
   </div>
-    <img class="hero" src="img/course_footer.png" width="fill">
-  </body>
-  </html>
+</div>
+<img class="hero" src="img/course_footer.png" style="margin-top: 120px;">
+</body>
+</html>
