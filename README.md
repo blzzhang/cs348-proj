@@ -93,6 +93,7 @@ Currently, there are several features you can use by making a request to our end
 curl 'localhost:8080/courses/populate' ;populates the sample db (RestapiService.java, RestapiServiceImpl.java)
 curl -v -X POST localhost:8080/courses/instructors ;updates the db entries with the list of instructors (RestapiServiceImpl.java)
 curl 'localhost:8080/courses/{id}' ;gets the course by id (RestapiService.java, RestapiServiceImpl.java)
+curl 'localhost:8080/courses/{subject_code}/{catalog_number}' ; gets the course by catalog number e.g. CS350
 curl 'localhost:8080/students/register' ;post request to register a student account (StudentService.java, StudentServiceImpl.java)  
 curl 'localhost:8080/students/listAll' ;gets all registers users (StudentService.java, StudentServiceImpl.java)  
 curl 'localhost:8080/reviews/{id}/add' ;post request to create a new review (ReviewService.java, ReviewServiceImpl.java)  

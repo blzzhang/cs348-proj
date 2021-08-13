@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Repository
 public interface CourseRepository extends CrudRepository<Course, Integer> {
@@ -34,4 +35,9 @@ public interface CourseRepository extends CrudRepository<Course, Integer> {
                         @Param("sub") String subject,
                         @Param("catalog") String catalog,
                         @Param("instructors") String instructors);
+
+    @Query(value = "select * from course where subject_code = :subject and catalog_number = :catalog limit 1",
+    nativeQuery = true)
+    Iterable<Course> findByCourseCode(@Param("subject") String subject,
+                                      @Param("catalog") String catalog);
 }

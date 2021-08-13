@@ -10,4 +10,6 @@ public interface RestapiService {
     Iterable<Course> findAllById(String id);
 
     void addInstructors();
+
+    Iterable<Course> findByCourseCode(String subject, String catalog);
 }

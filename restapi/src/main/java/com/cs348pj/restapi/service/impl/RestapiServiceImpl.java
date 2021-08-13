@@ -13,10 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 @Service("restapiService")
@@ -92,5 +89,10 @@ public class RestapiServiceImpl implements RestapiService {
     @Override
     public Iterable<Course> findAllById(String id) {
         return courseRepository.findAllById(List.of(Integer.parseInt(id)));
+    }
+
+
+    public Iterable<Course> findByCourseCode(String subject, String catalog) {
+        return courseRepository.findByCourseCode(subject, catalog);
     }
 }
