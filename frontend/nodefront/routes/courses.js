@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var http = require('http');
+var name = require('../name');
 
 
 function api_get_course(subject, catalog) {
@@ -50,6 +51,8 @@ function api_get_course(subject, catalog) {
 
 /* GET courses listing. */
 router.get('/', function(req, res, next) {
+    console.log('name');
+    console.log(name.name.username);
     let course_code = req.query.course || "cs348";
     let patt1 = /[a-zA-Z]/g;
     let patt2 = /[0-9]/g;
@@ -57,7 +60,6 @@ router.get('/', function(req, res, next) {
     let catalog_num = course_code.match(patt2).join("");
     console.log(subject);
     console.log(catalog_num);
-    let course_data= {};
     api_get_course(subject, catalog_num)
         .then(response => {
         data = response[0];
@@ -67,14 +69,14 @@ router.get('/', function(req, res, next) {
         let title = data['title'];
         let instructors = data['instructors'];
         let description = data['description'];
-        res.render('courses', {
-            courseId: courseId,
-            subjectCode: subjectCode,
-            termCode: termCode,
-            title: title,
-            instructors: instructors,
-            description: description
-        });
+            res.render('courses', {
+                courseId: courseId,
+                subjectCode: subjectCode,
+                termCode: termCode,
+                title: title,
+                instructors: instructors,
+                description: description
+            });
         })
         .catch(error => {
             console.log(error);
