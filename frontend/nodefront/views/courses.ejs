@@ -8,7 +8,7 @@
 <!--course stuffs-->
 
 <body>
-  <a href="/">Back</a>
+  <a href="/">Home</a>
 
   <div class="hero-page">
     <img class="hero" src="img/course_hero.png">
@@ -43,7 +43,11 @@
         <h2>Instructors:</h2>
         <div class="instructors-section">
           <img src="img/instructor-icon.jpg" height="50px" width="50px">
-          <span style="margin-left: 15px; font-size: 24px;"><%= instructors %></span>
+          <br>
+          <% for (var i = 0; i < instructors.length ; i++) { %>
+          <br>
+          <div style="margin-left: 0px; font-size: 24px;"><%= instructors[i] %></div>
+          <% } %>
         </div>
       </div>
     </div>

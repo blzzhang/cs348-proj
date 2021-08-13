@@ -62,11 +62,16 @@ function get_courses(req, res) {
     api_get_course(subject, catalog_num)
         .then(response => {
             data = response[0];
+            if (!data) {
+                res.render('/error');
+            }
             let courseId = data['courseId'];
             let subjectCode = data['subjectCode'];
             let termCode = data['termCode'];
             let title = data['title'];
-            let instructors = data['instructors'];
+            let instructors_str = data['instructors'];
+            let instructors = instructors_str.replace("[","").replace("]","").split(", ");
+            console.log(instructors);
             let description = data['description'];
             let catalogNumber = data['catalogNumber'];
             let reviews = [];
@@ -76,7 +81,7 @@ function get_courses(req, res) {
             axios.get(`http://localhost:8080/reviews/listAllForCourse?courseName=${subjectCode+catalogNumber}`)
                 .then(resp => {
                     reviews = resp['data'];
-                    console.log(reviews);
+
 
                     axios.get(`http://localhost:8080/reviews/getAvarageRating?courseName=${subjectCode+catalogNumber}`)
                         .then(resp => {
