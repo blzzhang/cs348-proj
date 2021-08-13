@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<head>
+  <title><%= %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <div class="hero-page">
+    <img class="hero" src="img/home_hero.png">
+    <div class="body-content">
+    <div class="Search">
+    <h1 style="color: white;">Explore courses and real student reviews</h1>
 
-    <h1>Click here to login/signup</h1>
-    <li><a href="/users">Login/Signup</a> </li>
-
-    <h1>Click here to find courses</h1>
-    <form action = "/courses" method="get">
-      <label for="username">Enter the course code</label>
-      <br><br>
-      <input type="text" id="course" name="course"><br><br>
-      <input type="submit" value="Submit">
+    <form action = "/courses" method="get" >
+      <div class="searchbar">
+        <label for="username"></label>
+        <input type="text" id="course" name="course" placeholder="Search for courses with their course code...">
+        <button type="submit">Search</button>
+      </div>
     </form>
-  </body>
+    </div>
+
+    <div class="sign-up">
+    <h2 style="color: white;">Already a user/want to sign up?</h2>
+    <a href="/users" style="font-size: 16px; color: #FDD54F;">Login/Signup</a>
+    </div>
+    </div>
+  </div>
+</body>
 </html>
+
+    
